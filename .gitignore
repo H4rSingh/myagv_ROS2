@@ -3,30 +3,3 @@ build/
 install/
 log/
 
-# ROS2 test results
-test_results/
-
-# Python cache
-__pycache__/
-*.pyc
-
-# Editor / IDE
-.vscode/
-.idea/
-*.swp
-
-# CMake / build system junk
-CMakeFiles/
-CMakeCache.txt
-cmake_install.cmake
-Makefile
-
-# Large data files (optional, tweak as you like)
-*.bag
-*.db3
-*.pgm
-*.bt
-*.pcd
-
-# Colcon metadata
-.colcon/

@@ -1,18 +1,15 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="base" params="length width height mass wheel_radius wheel_pos_z mesh_file">
-    <link name="base_footprint"/>
+  <xacro:macro name="base" params="length width height mass wheel_radius wheel_pos_z ">
     
+    <link name="base_footprint"/>
+
     <link name="base_link">
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <xacro:if value="${mesh_file == ''}">
-            <box size="${length} ${width} ${height}"/>
-          </xacro:if>
-          <xacro:unless value="${mesh_file == ''}">
-            <mesh filename="${mesh_file}" scale="1 1 1"/>
-          </xacro:unless>
+          <!-- Always use box -->
+          <box size="${length} ${width} ${height}"/>
         </geometry>
         <material name="purple">
            <color rgba="0.3333333333333333 0.2235294117647059 0.8 1.0" />
@@ -51,5 +48,6 @@
       <child link="base_link"/>
       <origin xyz="0 0 ${wheel_radius - wheel_pos_z}" rpy="0 0 0"/>
     </joint>
+
   </xacro:macro>
 </robot>

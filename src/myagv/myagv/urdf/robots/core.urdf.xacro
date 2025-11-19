@@ -1,13 +1,12 @@
 <?xml version="1.0"?>
 <robot name="myagv_mecanum" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:include filename="$(find myagv_description)/urdf/mecanum_properties.urdf.xacro" />
-  <xacro:include filename="$(find myagv_description)/urdf/mech/base.urdf.xacro" />
-  <xacro:include filename="$(find myagv_description)/urdf/mech/mecanum_wheel.urdf.xacro" />
-  <xacro:include filename="$(find myagv_description)/urdf/sensors/plugins.urdf.xacro" />
-  <xacro:include filename="$(find myagv_description)/urdf/sensors/imu.urdf.xacro" />
-  <xacro:include filename="$(find myagv_description)/urdf/sensors/generic_laser.urdf.xacro" />
-  <!-- <xacro:include filename="$(find myagv_description)/urdf/sensors/depth_sensor.urdf.xacro" /> -->
-  <xacro:include filename="$(find myagv_description)/urdf/controllers/omni_drive.urdf.xacro" />
+  <xacro:include filename="$(find myagv)/urdf/mecanum_properties.urdf.xacro" />
+  <xacro:include filename="$(find myagv)/urdf/mech/base.urdf.xacro" />
+  <xacro:include filename="$(find myagv)/urdf/mech/mecanum_wheel.urdf.xacro" />
+  <xacro:include filename="$(find myagv)/urdf/sensors/plugins.urdf.xacro" />
+  <xacro:include filename="$(find myagv)/urdf/sensors/imu.urdf.xacro" />
+  <xacro:include filename="$(find myagv)/urdf/sensors/generic_laser.urdf.xacro" />
+  <xacro:include filename="$(find myagv)/urdf/controllers/omni_drive.urdf.xacro" />
 
   <xacro:base 
     length="${base_length}" 
@@ -16,7 +15,6 @@
     mass="${base_mass}"
     wheel_radius="${wheel_radius}"
     wheel_pos_z="${wheel_pos_z}"
-    mesh_file="${base_mesh_file}"
   />
 
   <xacro:mecanum_wheel 
@@ -27,7 +25,6 @@
     pos_y="${wheel_pos_y}" 
     pos_z="${wheel_pos_z}" 
     mass="${wheel_mass}"
-    mesh_file="${wheel_mesh_file}"
   />
 
   <xacro:mecanum_wheel 
@@ -38,7 +35,6 @@
     pos_y="${-wheel_pos_y}" 
     pos_z="${wheel_pos_z}" 
     mass="${wheel_mass}"
-    mesh_file="${wheel_mesh_file}"
   />
   <xacro:mecanum_wheel 
     side="rear_left"
@@ -48,7 +44,6 @@
     pos_y="${wheel_pos_y}" 
     pos_z="${wheel_pos_z}" 
     mass="${wheel_mass}"
-    mesh_file="${wheel_mesh_file}"
   />
 
   <xacro:mecanum_wheel 
@@ -59,7 +54,6 @@
     pos_y="${-wheel_pos_y}" 
     pos_z="${wheel_pos_z}" 
     mass="${wheel_mass}"
-    mesh_file="${wheel_mesh_file}"
   />
 
   <xacro:imu/>
@@ -68,9 +62,6 @@
     <xacro:insert_block name="laser_pose" />
   </xacro:generic_laser>
   
-  <!-- <xacro:depth_sensor>
-    <xacro:insert_block name="depth_sensor_pose" />
-  </xacro:depth_sensor> -->
 
   <xacro:omni_drive_controller
     wheel_separation="${wheel_pos_y * 2}"

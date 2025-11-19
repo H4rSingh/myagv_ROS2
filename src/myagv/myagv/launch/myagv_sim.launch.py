@@ -6,13 +6,13 @@ import os
 
 def generate_launch_description():
     description_launch = os.path.join(
-        get_package_share_directory('myagv_description'),
+        get_package_share_directory('myagv'),
         'launch',
         'description.launch.py'
     )
 
     gazebo_launch = os.path.join(
-        get_package_share_directory('myagv_gazebo'),
+        get_package_share_directory('myagv'),
         'launch',
         'gazebo.launch.py'
     )

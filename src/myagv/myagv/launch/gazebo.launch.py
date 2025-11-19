@@ -19,9 +19,8 @@ def generate_launch_description():
         [FindPackageShare("myagv"), "config", "ekf.yaml"]
     )
 
-    robot_base = os.getenv('myagv_BASE')
     urdf_path = PathJoinSubstitution(
-        [FindPackageShare("myagv_description"), "urdf/robots", f"{robot_base}.urdf.xacro"]
+        [FindPackageShare("myagv"), "urdf/robots", "core.urdf.xacro"]
     )
 
     world_path = PathJoinSubstitution(
@@ -29,7 +28,7 @@ def generate_launch_description():
     )
 
     description_launch_path = PathJoinSubstitution(
-        [FindPackageShare('myagv_description'), 'launch', 'description.launch.py']
+        [FindPackageShare('myagv'), 'launch', 'description.launch.py']
     )
 
     gz_bridge_config_path = PathJoinSubstitution(
@@ -117,11 +116,11 @@ def generate_launch_description():
             parameters=[{'config_file': gz_bridge_config_path}],
         ),
 
-        Node(
-            package='myagv_gazebo',
-            executable='command_timeout',
-            name='command_timeout'
-        ),
+        # Node(
+        #     package='myagv_gazebo',
+        #     executable='command_timeout',
+        #     name='command_timeout'
+        # ),
 
         Node(
             package='robot_localization',
