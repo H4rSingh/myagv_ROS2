@@ -1,0 +1,4 @@
+{
+    "name": "myagv_gazebo",
+    "hooks": ["share/myagv_gazebo/hook/myagv_gazebo.sh"]    
+} 
