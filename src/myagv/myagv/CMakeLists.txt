@@ -4,7 +4,7 @@ project(myagv)
 find_package(ament_cmake REQUIRED)
 
 install(
-  DIRECTORY launch config urdf
+  DIRECTORY launch config urdf maps
   DESTINATION share/${PROJECT_NAME}
 )
 
